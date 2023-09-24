@@ -1,14 +1,14 @@
 import React, { useRef } from "react";
 import "./styles.css";
 
-interface Props {
+interface InputFieldProps {
   todo: string;
   setTodo: React.Dispatch<React.SetStateAction<string>>;
   handleAdd: (event: React.FormEvent) => void;
 }
 
 // Passing props to component
-export const InputField = ({ todo, setTodo, handleAdd }: Props) => {
+export const InputField = ({ todo, setTodo, handleAdd }: InputFieldProps) => {
   // useRef Hook with TypeScript
   const inputRef = useRef<HTMLInputElement>(null);
   return (
