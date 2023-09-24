@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import "./styles.css";
 
 interface Props {
@@ -9,10 +9,20 @@ interface Props {
 
 // Passing props to component
 export const InputField = ({ todo, setTodo, handleAdd }: Props) => {
+  // useRef Hook with TypeScript
+  const inputRef = useRef<HTMLInputElement>(null);
   return (
     <div>
-      <form className="input" onSubmit={handleAdd}>
+      <form
+        className="input"
+        onSubmit={(event) => {
+          handleAdd(event);
+          // Blur shifts the focus from the input box
+          inputRef.current?.blur();
+        }}
+      >
         <input
+          ref={inputRef}
           className="input__box"
           value={todo}
           onChange={(event) => setTodo(event.target.value)}

@@ -10,14 +10,22 @@ const App: React.FC = () => {
 
   const handleAdd = (event: React.FormEvent) => {
     event.preventDefault();
-  };
 
-  console.log(todo);
+    // To-Do Logic Creation
+    if (todo) {
+      setTodos([...todos, { id: Date.now(), todo, isDone: false }]);
+      setTodo("");
+    }
+  };
 
   return (
     <div className="App">
       <span className="heading">Taskify</span>
       <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd} />
+      {/* <TodoList /> */}
+      {todos.map((task) => (
+        <li>{task.todo}</li>
+      ))}
     </div>
   );
 };
