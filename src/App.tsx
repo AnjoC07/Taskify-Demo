@@ -8,6 +8,7 @@ const App: React.FC = () => {
   // useStateHook | The use "<>" will indicate what type is used.
   const [todo, setTodo] = useState<string>("");
   const [todos, setTodos] = useState<Todo[]>([]);
+  // const [completeTodos, setCompletedTodos] = useState<Todo>([]);
 
   const handleAdd = (event: React.FormEvent) => {
     event.preventDefault();
